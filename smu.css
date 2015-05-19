@@ -1,0 +1,105 @@
+.smu-container
+{
+	position: relative;
+  	margin: auto;
+  	width: 70%;
+  	height: 70%;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
+
+.smu-launch-button
+{
+	display: block;
+  	position: relative;
+  	margin: auto;
+  	width: 30%; 
+  	height: 20%;
+  	min-width: 150px;
+}
+
+.smu-logo
+{
+	display: block;
+ 	position: relative;
+  	margin: auto;
+  	width: 50%; 
+  	height: 20%;
+}
+
+.smu-text
+{
+	display: block;
+ 	position: relative;
+  	margin: auto;
+  	width: 50%; 
+  	text-align: center;
+}
+
+.smu-riddle-container
+{
+	position: relative;
+  	margin: auto;
+  	width: 70%;
+  	height: 70%;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
+
+.smu-riddle-question
+{
+	position: relative;
+  	margin: auto;
+  	width: 100%;
+  	height: 100%;
+}
+
+.smu-tab-content
+{
+	position: relative;
+  	margin: auto;
+  	width: 100%;
+  	height: 80%;
+  	overflow-x: hidden;
+}
+
+.smu-answer-button
+{
+	display: block;
+	margin: auto;
+}
+
+.smu-answer-input
+{
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
+	width: 100px;
+}
+
+.smu-textarea
+{
+	resize: none;
+	width: 100%;
+	min-height: 100px;
+	margin-bottom: 10px;
+}
+
+.coin-image
+{
+  display: block;
+  position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 20%; 
+    height: 20%;
+}
+
+.selectdemoBasicUsage p {
+  padding: 0 20px;
+  text-align: center; }
+.selectdemoBasicUsage p.md-caption {
+  margin-top: -7px;
+  color: #777; }
+.selectdemoBasicUsage .demo-content {
+  min-height: 348px; }

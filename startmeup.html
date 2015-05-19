@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Start Me Up Challenge!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.7.0/angular-material.min.css">
+
+    <!--
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic"/>
+
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="smu.css">
+
+    <!-- Material Design themes
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/amber-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/blue-grey-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/blue-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/cyan-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/deep-orange-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/deep-purple-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/green-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/grey-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/indigo-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/light-blue-dark-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/light-green-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/lime-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/orange-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/pink-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/purple-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/red-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/teal-theme.css';
+    @import 'https://cdn.rawgit.com/angular/bower-material/master/themes/yellow-theme.css';
+    -->
+</head>
+<body ng-app="myApp" ng-controller="SideNavController" layout="column" layout-align="top center" layout-fill>
+<md-content class="main-content"  ng-controller="quizController" ng-hide="appHidden">
+	<div class="smu-container" ng-hide="hideMain" >
+        <md-dialog></md-dialog>
+        <div>
+		  <img class="main-logo smu-logo" src="image/StartMeUp.png"/>
+        </div>
+        <div class="smu-text">
+            <p>Congratulations on making it this far and welcome to the Start Me Up challenge for 2015!</p>
+        </div>
+		<div>
+		  <md-button class="md-raised smu-launch-button" ng-click="startChallenge()">Start Me Up!</md-button>
+        </div>
+	</div>
+	<md-card ng-show="showQuestions" class="smu-riddle-container" ng-controller="quizController">
+		<md-content class="md-padding smu-riddle-question">
+			<md-tabs md-border-bottom md-selected="data.selectedIndex">
+                <md-tab label="Welcome">
+                    <md-content class="md-padding smu-tab-content">
+                        <div>
+                            <p>{{reverseString(welcomeMessage[0])}}</p>
+                            <p>{{reverseString(welcomeMessage[1])}}</p>
+                            <p>{{reverseString(welcomeMessage[2])}}</p>
+                            <md-content layout-padding>
+                                <form name="userForm">
+                                    <div layout layout-sm="column">
+                                        <md-input-container flex>
+                                            <label>First name</label>
+                                            <input ng-model="$parent.data.firstName">
+                                        </md-input-container>
+                                        <md-input-container flex>
+                                            <label>Last Name</label>
+                                            <input ng-model="$parent.data.lastName">
+                                        </md-input-container>
+                                    </div>
+                                </form>
+                            </md-content>
+                            <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Start!</md-button>
+                        </div>
+                    </md-content>
+                </md-tab>
+				<md-tab label="one">
+					<md-content class="md-padding smu-tab-content">
+						<div ng-controller="quizController">
+							<h1 class="md-display-2">Riddle 1</h1>
+							<p>{{reverseString(quizQuestions[calcFibonacci(3)])}}</p>
+                            <img class="coin-image" src="image/shoe.png"/>
+                            <md-input-container flex>
+                                <label>Answer:</label>
+                                <input ng-model="data.answer1">
+                            </md-input-container>
+							<md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+						</div>
+					</md-content>
+				</md-tab>
+				<md-tab label="two">
+					<md-content class="md-padding">
+						<h1 class="md-display-2">Riddle 2</h1>
+						<p>{{reverseString(quizQuestions[calcFibonacci(4)])}}</p>
+                        <img class="coin-image" src="image/question.png"/>
+                        <md-input-container flex>
+                            <label>Answer:</label>
+                            <input ng-model="data.answer2">
+                        </md-input-container>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+					</md-content>
+				</md-tab>
+				<md-tab label="three">
+					<md-content class="md-padding">
+						<h1 class="md-display-2">Riddle 3</h1>
+						<p>{{reverseString(quizQuestions[calcFibonacci(5)])}}</p>
+                        <img class="coin-image" src="image/girl.png"/>
+                        <md-input-container flex>
+                            <label>Answer:</label>
+                            <input ng-model="data.answer3">
+                        </md-input-container>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+					</md-content>
+				</md-tab>
+                <md-tab label="four">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Riddle 4</h1>
+                        <p>{{reverseString(quizQuestions[calcFibonacci(6)])}}</p>
+                        <img class="coin-image" src="image/age.png"/>
+                        <md-input-container flex>
+                            <label>Answer:</label>
+                            <input ng-model="data.answer4">
+                        </md-input-container>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="five">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Riddle 5</h1>
+                        <p>{{reverseString(quizQuestions[calcFibonacci(7)])}}</p>
+                        <img class="coin-image" src="image/coins.png"/>
+                        <md-input-container flex>
+                            <label>Answer:</label>
+                            <textarea ng-model="data.answer5" columns="1"></textarea>
+                        </md-input-container>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="six">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Riddle 6</h1>
+                        <p>{{reverseString(quizQuestions[calcFibonacci(8)])}}</p>
+                        <md-radio-group ng-model="data.answer6" layout="column">
+                            <md-radio-button value="ITANOIVNON">ITANOIVNON</md-radio-button>
+                            <md-radio-button value="HMMNUZSHNM">HMMNUZSHNM</md-radio-button>
+                            <md-radio-button value="NOITAVONNI">NOITAVONNI</md-radio-button>
+                            <md-radio-button value="VAABINGVBA">VAABINGVBA</md-radio-button>
+                        </md-radio-group>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="seven">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Riddle 7</h1>
+                        <p>{{reverseString(quizQuestions[calcFibonacci(9)])}}</p>
+                        <md-radio-group ng-model="data.answer7" layout="column">
+                            <md-radio-button value="Wifi">Wifi</md-radio-button>
+                            <md-radio-button value="Keyboard">Keyboard</md-radio-button>
+                            <md-radio-button value="Database">Database</md-radio-button>
+                            <md-radio-button value="Creditcard">Creditcard</md-radio-button>
+                        </md-radio-group>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="eight">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Riddle 8</h1>
+                        <p>{{reverseString(quizQuestions[calcFibonacci(10)])}}</p>
+                        <md-radio-group ng-model="data.answer8" layout="column">
+                            <md-radio-button value="A">A</md-radio-button>
+                            <md-radio-button value="T">T</md-radio-button>
+                            <md-radio-button value="C">C</md-radio-button>
+                            <md-radio-button value="W">W</md-radio-button>
+                        </md-radio-group>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="nine">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Riddle 9</h1>
+                        <p>{{reverseString(quizQuestions[calcFibonacci(11)])}}</p>
+                        <ul layout="column">
+                            <li>Sydney: "Brenda ate the candy</li>
+                            <li>Brenda: "Santhan ate them all up!"</li>
+                            <li>Charlotte: "I didn't eat them, no way!"</li>
+                            <li>Santhan: "Brenda's totally lying!</li>
+                        </ul>
+                        <p>{{reverseString("?ydnac s'yaR eta ohw tuo erugif uoy naC .gniyl era srehto eht lla dna hturt eht gnillet si sdarg eseht fo eno ylnO")}}</p>
+                        <md-radio-group ng-model="data.answer9" layout="row">
+                            <md-radio-button value="Sydney">Sydney</md-radio-button>
+                            <md-radio-button value="Brenda"> Brenda </md-radio-button>
+                            <md-radio-button value="Charlotte">Charlotte</md-radio-button>
+                            <md-radio-button value="Santhan">Santhan</md-radio-button>
+                        </md-radio-group>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Complete">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Congratulations!</h1>
+                        <p>You are almost there. Just one more question.</p>
+                        <p>Tell us why we must hire you?</p>
+                        <md-input-container flex>
+                            <label>Brag here:</label>
+                            <textarea ng-model="data.Feedback" columns="1"></textarea>
+                        </md-input-container>
+                        <md-button class="md-raised md-warn smu-answer-button" ng-click="validateAnswer()">Next!</md-button>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Submit">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Submission!</h1>
+                        <p>{{reverseString("zn.oc.bsa@puemtrats ot liame dna woleb aera txet eht ni tnetnoc eht ypoc ylpmiS")}}</p>
+                        <md-input-container flex>
+                            <textarea ng-model="data.Email" columns="1"></textarea>
+                        </md-input-container>
+                    </md-content>
+                </md-tab>
+			</md-tabs>
+		</md-content>
+	</md-card>
+</md-content>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
+<script src="https://cdn.jsdelivr.net/hammerjs/2.0.4/hammer.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-aria.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.7.0/angular-material.min.js"></script>
+
+<script src="app.js"></script>
+
+<script src="view/view.js"></script>
+<!--
+<script src="view2/view2.js"></script>
+-->
+
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

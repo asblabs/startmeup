@@ -1,0 +1,189 @@
+/* app css stylesheet */
+::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: #f1c40f;
+}
+
+::selection {
+    color: black;
+    background: #f1c40f;
+}
+
+.bold{
+  font-weight: 500;
+}
+
+.button-padding{
+  padding: 0 6px;
+}
+
+.margin-auto{
+	margin: auto !important;
+}
+
+.nav-button{
+  display: block;
+  margin: 1em;
+  line-height: 25px;
+}
+
+md-tabs.md-default-theme md-tab {
+	color: rgb(0,0,0);
+}
+
+.bottom-toolbar{
+	height: 48px;
+}
+
+.black-theme{
+	background-color: rgb(0,0,0) !important;
+	color: rgb(255,255,255) !important;
+}
+
+.sign-in-button{
+	min-width: 6em !important;
+}
+
+md-tab{
+	padding: 32px 24px !important;
+}
+md-tabs{
+	height: 100% !important;
+}
+
+.md-header{
+	--height: 100% !important;
+}
+
+.sub-menu-items{
+  font-weight: normal;
+  text-transform: none;
+  padding-left: 20px;
+}
+
+footer{
+  width:100%;
+  height:140px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background-color: #f5f5f5;
+}
+
+.upper-footer{
+  height: 80px;
+}
+
+.lower-footer{
+  height: 60px;
+}
+
+.footer-brand{
+  padding-left: 64px !important;
+  padding-right: 64px !important;
+  align-items: center;
+}
+
+.copyright {
+  color: #b3b3b3;
+  font-size: 14px;
+  line-height: 3;
+}
+
+.footer-link{
+  color: #b3b3b3 !important;
+  margin-right: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.social-media-icon{
+  margin: 0;
+  margin-top:25px;
+  margin-right:5px;
+  width: 24px; height: 24px;
+}
+
+.main-content{
+  height: 100vh;
+  background-image: url("image/minimal_flat_galaxy_s_mockup_wallpaper.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  --background-position: 0 -140px;
+  width: 100%;
+}
+
+label{
+  color: black !important;
+}
+
+@media (max-width: 600px) {
+    .nav-button {
+        margin: 0.6em;
+    }
+    .md-toolbar-tools{
+        padding: 0;
+    }
+    .footer-brand{
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+    .lower-footer {
+        height: 90px;
+    }
+    .upper-footer {
+        height: 70px;
+    }
+    footer{
+        height: 160px;
+    }
+    .main-content{
+        --background-position: -180px -150px;
+		padding: 10% 0;
+    }
+    .social-media-icon{
+        margin-top: 15px;
+    }
+    md-sidenav md-toolbar .md-toolbar-tools{
+        padding-left: 16px;
+    }
+
+}
+
+.element
+{
+  position: relative;
+  --top: 50%;
+  --transform: translateY(-50%);
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: 70%;
+}
+
+.main-logo
+{
+  display: block;
+  position: relative;
+  top: 50%;
+  --transform: translateY(-50%);
+  margin: auto;
+  width: 50%; 
+  height: 20%;
+}
+
+.button
+{
+  display: block;
+  position: relative;
+  top: 50%;
+  --transform: translateY(-50%);
+  margin: auto;
+  width: 30%; 
+  height: 20%;
+}
+
+.md-tabs
+{
+  overflow-x: hidden;
+}
