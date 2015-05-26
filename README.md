@@ -1,6 +1,6 @@
 # StartMeUp
 
-Challenge ends soon, so better complete it quickly if you want to win the prize!
+##Challenge ends soon, so better complete it quickly if you want to win the prize!
 
 Simply pull the code down and complete the StartMeUp challenge!
 
